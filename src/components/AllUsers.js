@@ -32,18 +32,22 @@ const fetchUsersHandler = useCallback(async () => {
   return (
       <React.Fragment>
       <section>
-        <div class="div-comp-reply">
-        <table class="div-comp-reply">
+        <div class="div-comp">
+        <table border="1">
                     <thead>
                         <tr>
                             
-                            <th>Name</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Contact</th>
                             <th>Email</th>
                         </tr>
                     </thead>
                     <tbody>
                         {users.map(item=> <tr key={item.id}>
-                                    <td>{item.name}</td>
+                                    <td>{item.firstName}</td>
+                                    <td>{item.lastName}</td>
+                                    <td>{item.contactnumber}</td>
                                     <td>{item.email}</td>
                                 </tr>)}
                     </tbody>

@@ -13,8 +13,8 @@ const AddTweet = (props) =>{
         e.preventDefault();
         if(sessionStorage.getItem('user-info')){
            let usr=JSON.parse(sessionStorage.getItem('user-info'));
-	       tweet.fromUser=usr.name;
-           console.log(usr.name  + ''+ JSON.stringify(tweet));
+	       tweet.fromUser=usr.loginId;
+           console.log(usr.loginId  + ''+ JSON.stringify(tweet));
         }else{
             alert('Please login first to add tweet!')
         }

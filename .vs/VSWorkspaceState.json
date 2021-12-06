@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src"
+    "\\src",
+    "\\src\\components",
+    "\\src\\css"
   ],
-  "SelectedNode": "\\src\\Tweet.js",
+  "SelectedNode": "\\src\\components\\RegisterUser.js",
   "PreviewInSolutionExplorer": false
 }

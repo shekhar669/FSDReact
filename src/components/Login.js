@@ -4,7 +4,7 @@ import PasswordReset from './PasswordReset';
 
 const Login = (props) =>{
 const history =useHistory();
-const[userInput,setUserInput] = useState({ name: '', password: ''});
+const[userInput,setUserInput] = useState({ loginId: '', password: ''});
 const[showResetFlag,setShowResetFlag] = useState(false);
 
 const handleDataFromResetPwd=(data)=>{
@@ -31,6 +31,7 @@ const handleDataFromResetPwd=(data)=>{
         .then(res=> res.json())
         .then(res=> {
             setUserInput(res);
+            console.log('login res'+ JSON.stringify(res));
             sessionStorage.setItem("user-info", JSON.stringify(res));
             alert("logged in successfully");
             history.push("/addtweet");
@@ -54,8 +55,8 @@ if(sessionStorage.getItem('user-info')){
         }else{
         return <div class="div-comp">
         <form onSubmit={saveForm}>
-        <label className="label">Name</label>
-        <input type="text" name="name" onChange={e=> setUserInput({...userInput,name: e.target.value})} />
+        <label className="label">Login ID</label>
+        <input type="text" name="loginId" onChange={e=> setUserInput({...userInput,loginId: e.target.value})} />
         <label className="label">Password</label>
         <input type="password" name="password" onChange={e=> setUserInput({...userInput,password: e.target.value})}/>
         <input type="submit" name="submit" value="submit" />

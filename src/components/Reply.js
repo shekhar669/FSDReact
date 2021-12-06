@@ -14,8 +14,8 @@ const history =useHistory();
         props.handleData(false);
         if(sessionStorage.getItem('user-info')){
            let usr=JSON.parse(sessionStorage.getItem('user-info'));
-	       reply.fromUser=usr.name;
-           console.log(usr.name  + ''+ JSON.stringify(reply));
+	       reply.fromUser=usr.firstName;
+           console.log(usr.firstName  + ''+ JSON.stringify(reply));
         }else{
             alert('Please login first to add reply!')
         }
