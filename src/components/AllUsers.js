@@ -1,5 +1,6 @@
 import React, {useState,useEffect,useCallback } from 'react';
 import {useHistory} from 'react-router-dom';
+import config from "../config";
  
 const AllUsers = (props) => {
 const [users, setUsers] = useState([]);
@@ -11,7 +12,7 @@ const fetchUsersHandler = useCallback(async () => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch('http://localhost:8080/api/v1.0/tweets/users/all');
+      const response = await fetch(config.baseUrl.concat('/users/all'));
       if (!response.ok) {
         throw new Error('Something went wrong!');
       }

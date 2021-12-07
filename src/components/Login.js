@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import {useHistory} from 'react-router-dom';
 import PasswordReset from './PasswordReset';
+import config from "../config";
 
 const Login = (props) =>{
 const history =useHistory();
@@ -21,7 +22,7 @@ const handleDataFromResetPwd=(data)=>{
         e.preventDefault();
         console.log(userInput);
         // save the product in api
-        fetch('http://localhost:8080/api/v1.0/tweets/login',{
+        fetch(config.baseUrl.concat('/login'),{
             method : 'POST',
             headers: {
                 'Content-Type': 'application/json'

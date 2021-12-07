@@ -1,5 +1,6 @@
 import React, {useState,useEffect,useCallback } from 'react';
 import {useHistory} from 'react-router-dom';
+import config from "../config";
  
 const Reply = (props) => {
 const [relies, setReplies] = useState([]);
@@ -21,7 +22,7 @@ const history =useHistory();
         }
         console.log('reply home ' +props.showCompFlag);
         // save the reply in api
-        fetch('http://localhost:8080/api/v1.0/tweets/replies/add',{
+        fetch(config.baseUrl.concat('/replies/add'),{
             method : 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -3,6 +3,7 @@ import classes from './../css/Tweet.module.css';
 import { NavLink } from 'react-router-dom';
 import Reply from './Reply';
 import Replies from './Replies';
+import config from "../config";
 
 const Tweet = (props) => {
 const[showCompFlag,setShowCompFlag] = useState(false);
@@ -37,7 +38,7 @@ console.log(props.likes);
     let likeCount=sessionStorage.getItem("count"+props.id)?sessionStorage.getItem("count"+props.id):0;
     setError(null);
     try {
-      const response = await fetch(`http://localhost:8080/api/v1.0/tweets/${props.id}/likes?likes=${likeCount}`);
+      const response = await fetch(config.baseUrl.concat(`/${props.id}/likes?likes=${likeCount}`));
       if (!response.ok) {
         throw new Error('Something went wrong!');
       }

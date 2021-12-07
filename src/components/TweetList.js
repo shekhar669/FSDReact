@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Tweet from './Tweet';
 import classes from './../css/TweetList.module.css';
 

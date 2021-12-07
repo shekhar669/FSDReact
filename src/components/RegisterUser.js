@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {useHistory} from 'react-router-dom';
+import config from "../config";
  
 const RegisterUser = (props) =>{
   const history =useHistory();
@@ -13,7 +14,7 @@ const RegisterUser = (props) =>{
         alert("Passwords don't match");
          }else{
         // save the product in api
-        fetch('http://localhost:8080/api/v1.0/tweets/register',{
+        fetch(config.baseUrl.concat('/register'),{
             method : 'POST',
             headers: {
                 'Content-Type': 'application/json'

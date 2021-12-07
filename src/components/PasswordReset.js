@@ -1,4 +1,5 @@
 import React, {useState,useEffect,useCallback } from 'react';
+import config from "../config";
 
  const PasswordReset = (props) => {
  const[resetInput,setResetInput] = useState({email:'', password:'',confirmPassword:''});
@@ -11,7 +12,7 @@ import React, {useState,useEffect,useCallback } from 'react';
         if (resetInput.password !== resetInput.confirmPassword) {
         alert("Passwords don't match");
          }else {
-            fetch('http://localhost:8080/api/v1.0/tweets/reset/updatePassword',{
+            fetch(config.baseUrl.concat('/reset/updatePassword'),{
             method : 'POST',
             headers: {
                 'Content-Type': 'application/json'

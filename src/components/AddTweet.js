@@ -1,6 +1,7 @@
 import React, { useState,useEffect,useCallback } from 'react';
 import {useHistory} from 'react-router-dom';
 import TweetList from './TweetList';
+import config from "../config";
  
 const AddTweet = (props) =>{
   const history =useHistory();
@@ -20,7 +21,7 @@ const AddTweet = (props) =>{
         }
         console.log(tweet);
         // save the tweet in api
-        fetch('http://localhost:8080/api/v1.0/tweets/add',{
+        fetch(config.baseUrl.concat('/add'),{
             method : 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -71,13 +72,10 @@ const AddTweet = (props) =>{
     fetchTweetHandler();
   }, [fetchTweetHandler]);
 
-  function addTweetHandler(tweet) {
-    console.log(tweet);
-  }
-
+  
   let content = <p>Found no tweets.</p>;
 
-  if (tweets.length > 0) {
+  if (sessionStorage.getItem('user-info') && tweets.length > 0) {
     content = <TweetList tweets={tweets} />;
   }
   if (error) {
