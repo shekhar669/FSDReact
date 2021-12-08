@@ -9,6 +9,7 @@ import Reply from './components/Reply';
 import Login from './components/Login';
 import AddTweet from './components/AddTweet';
 import AllUsers from './components/AllUsers';
+
  
 function App() {
 let history =useHistory();
@@ -25,6 +26,9 @@ if(sessionStorage.getItem('user-info')){
     <div className="App">
       <BrowserRouter>
         <div>
+         <div>
+            <img src={logo} alt="logo image" width="100" height="100"/>
+         </div>
           <div className="header">
             <NavLink activeClassName="active" to="/registerUser" className="App-link">Register</NavLink>
             <NavLink activeClassName="active" to="/login" className="App-link">Login</NavLink>

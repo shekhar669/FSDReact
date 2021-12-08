@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\components",
-    "\\src\\css"
+    "\\src\\components"
   ],
-  "SelectedNode": "\\src\\components\\RegisterUser.js",
+  "SelectedNode": "\\src\\components\\Replies.js",
   "PreviewInSolutionExplorer": false
 }

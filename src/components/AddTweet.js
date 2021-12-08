@@ -2,6 +2,7 @@ import React, { useState,useEffect,useCallback } from 'react';
 import {useHistory} from 'react-router-dom';
 import TweetList from './TweetList';
 import config from "../config";
+import profileImage from './../img/profileImage.jpg'
  
 const AddTweet = (props) =>{
   const history =useHistory();
@@ -42,7 +43,7 @@ const AddTweet = (props) =>{
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch('http://localhost:8080/api/v1.0/tweets/all');
+      const response = await fetch(config.baseUrl.concat('/all'));
       if (!response.ok) {
         throw new Error('Something went wrong!');
       }
@@ -89,7 +90,10 @@ const AddTweet = (props) =>{
    return <React.Fragment>
       <section>
         <form onSubmit={saveForm}>
-        <div class="div-comp">
+         <div>
+         <img src={profileImage} alt="profile image" width="50" height="50"/>
+         </div>
+        <div class="div-comp"> 
         <label className="label">Tweet</label>
         <br></br>
         <textarea rows="10" cols="50" name="message" onChange={e=> setTweet({...tweet,message: e.target.value})} />

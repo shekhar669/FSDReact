@@ -21,11 +21,11 @@ const handleDataFromResetPwd=(data)=>{
    const saveForm = e =>{
         e.preventDefault();
         console.log(userInput);
-        // save the product in api
         fetch(config.baseUrl.concat('/login'),{
             method : 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': 'Basic ' + btoa(`${userInput.loginId}+:+${userInput.password}`)
             },
             body: JSON.stringify(userInput)
         })
